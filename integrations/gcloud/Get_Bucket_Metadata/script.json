@@ -1,0 +1,4 @@
+{
+  "summary": "Get Bucket Metadata",
+  "description": "Gets Google Cloud Storage bucket metadata. [See the docs](https://googleapis.dev/nodejs/storage/latest/Bucket.html#getMetadata)."
+}

@@ -1,0 +1,4 @@
+{
+  "summary": "Search Objects",
+  "description": "Search objects by a prefix, [See the docs](https://googleapis.dev/nodejs/storage/latest/Bucket.html#getFiles)"
+}

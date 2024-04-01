@@ -1,0 +1,4 @@
+{
+  "summary": "Bigquery Insert Rows",
+  "description": "Inserts rows into a BigQuery table. [See the docs](https://github.com/googleapis/nodejs-bigquery) and for an example [here](https://github.com/googleapis/nodejs-bigquery/blob/main/samples/insertRowsAsStream.js)."
+}

@@ -1,0 +1,4 @@
+{
+  "summary": "Create Bucket",
+  "description": "Creates a bucket on Google Cloud Storage [See the docs](https://googleapis.dev/nodejs/storage/latest/Bucket.html#create)"
+}

@@ -1,0 +1,4 @@
+{
+  "summary": "Create Scheduled Query",
+  "description": "Creates a scheduled query in Google Cloud. [See the documentation](https://cloud.google.com/bigquery/docs/scheduling-queries)"
+}
