@@ -1,0 +1,42 @@
+{
+  "description": "Schema for the resource configuration",
+  "schema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "userClientId": {
+        "type": "string",
+        "description": "Your Client ID for User related app"
+      },
+      "userClientSecret": {
+        "type": "string",
+        "description": "Your Client Secret for User related app"
+      },
+      "userAccessToken": {
+        "type": "string",
+        "description": "Your access token for User related app"
+      },
+      "organizationClientId": {
+        "type": "string",
+        "description": "Your Client ID for Organization related app"
+      },
+      "organizationClientSecret": {
+        "type": "string",
+        "description": "Your Client Secret for Organization related app"
+      },
+      "organizationAccessToken": {
+        "type": "string",
+        "description": "Your access token for Organization related app"
+      },
+      "baseUrl": {
+        "type": "string",
+        "description": "Base URL for all linkedin's developer apis"
+      },
+      "apiVersion": {
+        "type": "string",
+        "description": "API version for the implemented apis, format must be YYYYMM"
+      }
+    },
+    "required": ["userClientId", "userClientSecret", "userAccessToken", "organizationClientId", "organizationClientSecret", "organizationAccessToken", "baseUrl", "apiVersion"]
+  }
+}

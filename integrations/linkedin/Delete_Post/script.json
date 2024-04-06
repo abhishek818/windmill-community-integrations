@@ -1,0 +1,4 @@
+{
+  "summary": "Delete Post",
+  "description": "Removes a post from user's wall. [See the docs](https://docs.microsoft.com/en-us/linkedin/marketing/integrations/community-management/shares/share-api?tabs=http#delete-shares) for more information"
+}

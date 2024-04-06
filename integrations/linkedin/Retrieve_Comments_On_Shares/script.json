@@ -1,0 +1,4 @@
+{
+  "summary": "Retrieve Comments On Shares",
+  "description": "Retrieve comments on shares given the share urn. [See the docs here](https://docs.microsoft.com/en-us/linkedin/marketing/integrations/community-management/shares/network-update-social-actions#retrieve-comments-on-shares)"
+}
