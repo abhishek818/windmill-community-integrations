@@ -10,5 +10,5 @@ export const resource = {
   token_uri: Bun.env.TOKEN_URI!,
   auth_provider_x509_cert_url: Bun.env.AUTH_PROVIDER_X509_CERT_URL!,
   client_x509_cert_url: Bun.env.CLIENT_X509_CERT_URL!,
-  universe_domain: Bun.env.UNIVERSE_DOMAIN!
-}
+  universe_domain: Bun.env.UNIVERSE_DOMAIN!,
+};

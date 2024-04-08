@@ -1,5 +1,5 @@
 // IMPORTANT NOTE: Streaming insert api is supported in paid tier only
-import { BigQuery } from "@google-cloud/bigquery";
+import { BigQuery } from '@google-cloud/bigquery';
 
 type Gcloud = {
   type: string;
@@ -13,7 +13,7 @@ type Gcloud = {
   auth_provider_x509_cert_url: string;
   client_x509_cert_url: string;
   universe_domain: string;
-}
+};
 
 export async function main(
   resource: Gcloud,
@@ -23,11 +23,11 @@ export async function main(
     rows: {
       [key: string]: any;
     };
-  } 
+  },
 ) {
   const bigquery = new BigQuery({
     credentials: resource,
-    projectId: resource.project_id
+    projectId: resource.project_id,
   });
 
   try {

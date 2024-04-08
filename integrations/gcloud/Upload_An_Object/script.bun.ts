@@ -1,4 +1,4 @@
-import { Storage } from "@google-cloud/storage";
+import { Storage } from '@google-cloud/storage';
 
 type Gcloud = {
   type: string;
@@ -12,7 +12,7 @@ type Gcloud = {
   auth_provider_x509_cert_url: string;
   client_x509_cert_url: string;
   universe_domain: string;
-}
+};
 
 type Base64 = string;
 
@@ -21,12 +21,12 @@ export async function main(
   bucketName: string,
   filePath: Base64,
   options: {
-    destination: string
-  }
+    destination: string;
+  },
 ) {
   const storage = new Storage({
     credentials: resource,
-    projectId: resource.project_id
+    projectId: resource.project_id,
   });
 
   try {

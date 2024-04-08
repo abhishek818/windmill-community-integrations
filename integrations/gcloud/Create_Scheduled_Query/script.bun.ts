@@ -12,41 +12,43 @@ type Gcloud = {
   auth_provider_x509_cert_url: string;
   client_x509_cert_url: string;
   universe_domain: string;
-}
+};
 
 export async function main(
   resource: Gcloud,
   transferConfig: {
-    destination_dataset_id: string,
-    display_name: string,
-    data_source_id: string,
+    destination_dataset_id: string;
+    display_name: string;
+    data_source_id: string;
     params: {
-      "query": string,
-      "destination_table_name_template": string,
-      "write_disposition"?: "WRITE_TRUNCATE" | "WRITE_APPEND" | "WRITE_EMPTY",
-      "partitioning_field"?: string
-    },
-    schedule: string
+      query: string;
+      destination_table_name_template: string;
+      write_disposition?: 'WRITE_TRUNCATE' | 'WRITE_APPEND' | 'WRITE_EMPTY';
+      partitioning_field?: string;
+    };
+    schedule: string;
   },
-  storageLocation: string
+  storageLocation: string,
 ) {
-  const datatransferClient = new DataTransferServiceClient({ 
+  const datatransferClient = new DataTransferServiceClient({
     credentials: resource,
-    projectId: resource.project_id
+    projectId: resource.project_id,
   });
 
   try {
     const projectId = await datatransferClient.getProjectId();
-    const parent = await datatransferClient.projectPath(projectId) + `/locations/${storageLocation}`;
-    
+    const parent =
+      (await datatransferClient.projectPath(projectId)) + `/locations/${storageLocation}`;
+
     // creates a TransferConfig message from a plain object, also converts values to their respective internal types.
-    const transferConfigObject = await protos.google.cloud.bigquery.datatransfer.v1.TransferConfig.fromObject(transferConfig);
+    const transferConfigObject =
+      await protos.google.cloud.bigquery.datatransfer.v1.TransferConfig.fromObject(transferConfig);
     // optional: service_account_name
     let request = {
       parent,
-      transferConfigObject
+      transferConfigObject,
     };
-    
+
     const response = await datatransferClient.createTransferConfig(request);
     return response;
   } catch (error) {

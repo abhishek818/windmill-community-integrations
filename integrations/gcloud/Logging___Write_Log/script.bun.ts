@@ -12,29 +12,29 @@ type Gcloud = {
   auth_provider_x509_cert_url: string;
   client_x509_cert_url: string;
   universe_domain: string;
-}
+};
 
 export async function main(
   resource: Gcloud,
   logName: string,
   textEntry: string,
-  metadata : {
-    resource: {} | string,
-    severity?: string, // Refer severity levels here : https://cloud.google.com/logging/docs/reference/v2/rest/v2/LogEntry#logseverity
-    [key: string]: any
+  metadata: {
+    resource: {} | string;
+    severity?: string; // Refer severity levels here : https://cloud.google.com/logging/docs/reference/v2/rest/v2/LogEntry#logseverity
+    [key: string]: any;
   },
   options: {
-    resource: {} | string,
-    [key: string]: any
-  }
+    resource: {} | string;
+    [key: string]: any;
+  },
 ) {
   const logging = new Logging({
     credentials: resource,
-    projectId: resource.project_id
+    projectId: resource.project_id,
   });
   const log = logging.log(logName);
   const text_entry = log.entry(metadata, textEntry);
-  
+
   try {
     const response = await log.write(text_entry, options);
     return response;

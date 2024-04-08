@@ -1,5 +1,5 @@
-import { InstancesClient } from "@google-cloud/compute";
- 
+import { InstancesClient } from '@google-cloud/compute';
+
 type Gcloud = {
   type: string;
   project_id: string;
@@ -12,30 +12,27 @@ type Gcloud = {
   auth_provider_x509_cert_url: string;
   client_x509_cert_url: string;
   universe_domain: string;
-}
+};
 
 export async function main(
   resource: Gcloud,
   request: {
-    projectId: string,
-    instance: string,
-    zone: string
+    projectId: string;
+    instance: string;
+    zone: string;
   },
-  operation: 'START' | 'STOP' // start or stop the vm instance
+  operation: 'START' | 'STOP', // start or stop the vm instance
 ) {
   const computeClient = new InstancesClient({
     credentials: resource,
-    projectId: resource.project_id
+    projectId: resource.project_id,
   });
 
   try {
     let compute;
-    if(operation == 'START')
-    {
+    if (operation == 'START') {
       compute = await computeClient.start(request);
-    }
-    else
-    {
+    } else {
       compute = await computeClient.stop(request);
     }
     return compute;
