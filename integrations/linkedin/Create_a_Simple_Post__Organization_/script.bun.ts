@@ -26,23 +26,23 @@ export async function main(
       media: {
         title: string;
         id: string;
-      }
+      };
     };
     lifecycleState: string;
     isReshareDisabledByAuthor: boolean;
-  }
+  },
 ) {
   const url = `${resource.baseUrl}/rest/posts`;
   try {
     const response = await axios.post(url, postData, {
       headers: {
-        "Authorization": `Bearer ${resource.organizationAccessToken}`,
-        "X-Restli-Protocol-Version": "2.0.0",
-        "LinkedIn-Version": `${resource.apiVersion}`,
-        "Content-Type": "application/json"
+        Authorization: `Bearer ${resource.organizationAccessToken}`,
+        'X-Restli-Protocol-Version': '2.0.0',
+        'LinkedIn-Version': `${resource.apiVersion}`,
+        'Content-Type': 'application/json',
       },
     });
-    
+
     return response;
   } catch (error) {
     throw error;

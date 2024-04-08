@@ -11,28 +11,25 @@ type Linkedin = {
   apiVersion: string;
 };
 
-export async function main(
-  resource: Linkedin,
-  personIdList: string[]
-) {
-  let personIdUrl = "";
+export async function main(resource: Linkedin, personIdList: string[]) {
+  let personIdUrl = '';
   for (let i = 0; i < personIdList.length; i++) {
     personIdUrl += `(id:${personIdList[i]})`;
     if (i < personIdList.length - 1) {
-      personIdUrl += ",";
+      personIdUrl += ',';
     }
   }
   const url = `${resource.baseUrl}/v2/people/${personIdUrl}`;
-  
+
   try {
     const response = await axios.get(url, {
       headers: {
-        "Authorization": `Bearer ${resource.userAccessToken}`,
-        "LinkedIn-Version": `${resource.apiVersion}`,
-        "X-Restli-Protocol-Version": "2.0.0"
+        Authorization: `Bearer ${resource.userAccessToken}`,
+        'LinkedIn-Version': `${resource.apiVersion}`,
+        'X-Restli-Protocol-Version': '2.0.0',
       },
     });
-    
+
     return response;
   } catch (error) {
     throw error;

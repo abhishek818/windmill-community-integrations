@@ -1,4 +1,3 @@
-
 // NOTE: Requires Advertising Api access, Refer README.md file
 
 // Sample Curl request:
@@ -8,13 +7,13 @@
 // --H 'X-Restli-Protocol-Version: 2.0.0' \
 // --H 'Content-Type: application/json' \
 // --data '{
-//     "currency": "USD", 
-//     "name": "Company A", 
-//     "notifiedOnCampaignOptimization": true, 
-//     "notifiedOnCreativeApproval": true, 
-//     "notifiedOnCreativeRejection": true, 
-//     "notifiedOnEndOfCampaign": true, 
-//     "reference": "urn:li:organization:2414183", 
+//     "currency": "USD",
+//     "name": "Company A",
+//     "notifiedOnCampaignOptimization": true,
+//     "notifiedOnCreativeApproval": true,
+//     "notifiedOnCreativeRejection": true,
+//     "notifiedOnEndOfCampaign": true,
+//     "reference": "urn:li:organization:2414183",
 //     "type": "BUSINESS"
 // }'
 

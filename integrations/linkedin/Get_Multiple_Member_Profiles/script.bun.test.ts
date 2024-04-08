@@ -1,4 +1,3 @@
-
 // NOTE: Requires Advertising API access, refer README.md file..
 
 // import { expect, test } from "bun:test";

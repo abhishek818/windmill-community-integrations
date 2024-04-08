@@ -6,5 +6,5 @@ export const resource = {
   organizationClientSecret: Bun.env.LINKEDIN_ORGANIZATION_CLIENT_SECRET!,
   organizationAccessToken: Bun.env.LINKEDIN_ORGANIZATION_ACCESS_TOKEN!,
   baseUrl: Bun.env.LINKEDIN_BASE_URL!,
-  apiVersion: Bun.env.LINKEDIN_API_VERSION!
-}
+  apiVersion: Bun.env.LINKEDIN_API_VERSION!,
+};

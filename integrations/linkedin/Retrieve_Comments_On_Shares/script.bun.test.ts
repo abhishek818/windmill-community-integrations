@@ -1,4 +1,3 @@
-
 // NOTE: REQUIRES Advertising API access
 
 // data: {
@@ -24,7 +23,7 @@
 //       "LinkedIn-Version": `${resource.apiVersion}`
 //     },
 //   });
-  
+
 //   const userId = userInfo.data.sub;
 //   const actor = `urn:li:person:${userId}`;
 //   const userPost = await createUserPost(resource, {
@@ -40,12 +39,12 @@
 //     "isReshareDisabledByAuthor": false
 //   });
 
-//   // Response (partial) for create post is : 
+//   // Response (partial) for create post is :
 //   // headers: {
 //   //   location: "/posts/urn%3Ali%3Ashare%3A7182373441684078594",
 //   // }
 //   // you have to parse "urn%3Ali%3Ashare%3A7182373441684078594" and pass it in the path.
-//   const postUrn = userPost.headers["location"].split("/").pop(); 
+//   const postUrn = userPost.headers["location"].split("/").pop();
 //   const postId = userPost.headers["x-restli-id"];
 //   const messageText = "Agree with you, nice contributions to our windmill-labs community mate!";
 //   await createComment(
@@ -59,7 +58,7 @@
 //       }
 //     }
 //   );
-  
+
 //   const messageText2 = "Looking forward to more contributions, @hugo-casa";
 //   await createComment(
 //     resource,
@@ -72,13 +71,13 @@
 //       }
 //     }
 //   );
-  
+
 //   // expect(response.status).toBe(201);
 //   // expect(response.data.actor).toBe(actor);
 
 //   const response = await main(resource, postUrn);
 //   console.log(response);
-  
+
 //   // Delete the post
 //   await deleteUserPost(resource, postId);
 

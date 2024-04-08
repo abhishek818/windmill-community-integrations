@@ -18,7 +18,7 @@
 //       "LinkedIn-Version": `${resource.apiVersion}`
 //     },
 //   });
-  
+
 //   const personId = userInfo.data.sub;
 
 //   const response = await main(resource, personId);

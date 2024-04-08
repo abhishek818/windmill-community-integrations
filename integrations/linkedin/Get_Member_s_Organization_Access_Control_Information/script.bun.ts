@@ -16,12 +16,12 @@ export async function main(resource: Linkedin) {
   try {
     const response = await axios.get(url, {
       headers: {
-        "Authorization": `Bearer ${resource.organizationAccessToken}`,
-        "LinkedIn-Version": `${resource.apiVersion}`,
-        "X-Restli-Protocol-Version": "2.0.0"
+        Authorization: `Bearer ${resource.organizationAccessToken}`,
+        'LinkedIn-Version': `${resource.apiVersion}`,
+        'X-Restli-Protocol-Version': '2.0.0',
       },
     });
-    
+
     return response;
   } catch (error) {
     throw error;

@@ -1,4 +1,3 @@
-
 // NOTE: REQUIRES Advertising API access
 
 // import { expect, test } from "bun:test";
