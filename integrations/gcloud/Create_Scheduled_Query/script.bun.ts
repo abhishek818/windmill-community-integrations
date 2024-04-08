@@ -1,7 +1,21 @@
 import { protos, DataTransferServiceClient } from '@google-cloud/bigquery-data-transfer';
 
+type Gcloud = {
+  type: string;
+  project_id: string;
+  private_key_id: string;
+  private_key: string;
+  client_email: string;
+  client_id: string;
+  auth_uri: string;
+  token_uri: string;
+  auth_provider_x509_cert_url: string;
+  client_x509_cert_url: string;
+  universe_domain: string;
+}
+
 export async function main(
-  keyFilename: string, // path of credentials file.
+  resource: Gcloud,
   transferConfig: {
     destination_dataset_id: string,
     display_name: string,
@@ -16,7 +30,10 @@ export async function main(
   },
   storageLocation: string
 ) {
-  const datatransferClient = new DataTransferServiceClient({ keyFilename });
+  const datatransferClient = new DataTransferServiceClient({ 
+    credentials: resource,
+    projectId: resource.project_id
+  });
 
   try {
     const projectId = await datatransferClient.getProjectId();

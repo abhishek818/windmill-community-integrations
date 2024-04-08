@@ -1,7 +1,21 @@
 import { InstancesClient } from "@google-cloud/compute";
  
+type Gcloud = {
+  type: string;
+  project_id: string;
+  private_key_id: string;
+  private_key: string;
+  client_email: string;
+  client_id: string;
+  auth_uri: string;
+  token_uri: string;
+  auth_provider_x509_cert_url: string;
+  client_x509_cert_url: string;
+  universe_domain: string;
+}
+
 export async function main(
-  keyFilename: string,
+  resource: Gcloud,
   request: {
     projectId: string,
     instance: string,
@@ -9,7 +23,10 @@ export async function main(
   },
   operation: 'START' | 'STOP' // start or stop the vm instance
 ) {
-  const computeClient = new InstancesClient({ keyFilename });
+  const computeClient = new InstancesClient({
+    credentials: resource,
+    projectId: resource.project_id
+  });
 
   try {
     let compute;
@@ -23,9 +40,6 @@ export async function main(
     }
     return compute;
   } catch (error) {
-    return {
-      error: true,
-      message: error || 'Internal Server Error',
-    }
+    throw error;
   }
 }

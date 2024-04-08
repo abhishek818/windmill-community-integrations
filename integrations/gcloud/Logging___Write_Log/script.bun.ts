@@ -1,7 +1,21 @@
 import { Logging } from '@google-cloud/logging';
 
+type Gcloud = {
+  type: string;
+  project_id: string;
+  private_key_id: string;
+  private_key: string;
+  client_email: string;
+  client_id: string;
+  auth_uri: string;
+  token_uri: string;
+  auth_provider_x509_cert_url: string;
+  client_x509_cert_url: string;
+  universe_domain: string;
+}
+
 export async function main(
-  keyFilename: string,
+  resource: Gcloud,
   logName: string,
   textEntry: string,
   metadata : {
@@ -14,7 +28,10 @@ export async function main(
     [key: string]: any
   }
 ) {
-  const logging = new Logging({ keyFilename });
+  const logging = new Logging({
+    credentials: resource,
+    projectId: resource.project_id
+  });
   const log = logging.log(logName);
   const text_entry = log.entry(metadata, textEntry);
   
@@ -22,9 +39,6 @@ export async function main(
     const response = await log.write(text_entry, options);
     return response;
   } catch (error) {
-    return {
-      error: true,
-      message: error || 'Internal Server Error',
-    }
+    throw error;
   }
 }

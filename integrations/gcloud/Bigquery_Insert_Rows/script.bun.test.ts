@@ -2,6 +2,7 @@
 import { expect, test } from "bun:test";
 import { main } from "./script.bun.ts";
 import { BigQuery } from "@google-cloud/bigquery";
+import { resource } from '../resource.ts';
 
 // dataset and tables can be created manually on the GCloud website also.
 // IMPORTANT NOTE: Streaming insert api is supported in paid tier only
@@ -9,8 +10,10 @@ import { BigQuery } from "@google-cloud/bigquery";
 test("Bigquery Insert Rows", async () => {
 
   // Create dataset and table first
-  const keyFilename = './creds.json';
-  const bigquery = new BigQuery({keyFilename});
+  const bigquery = new BigQuery({
+    credentials: resource,
+    projectId: resource.project_id
+  });
 
   const datasetId = Math.random().toString(36).slice(2) + '_windmill_labs_dataset';
   // Specify the geographic location where the dataset should reside
@@ -30,7 +33,7 @@ test("Bigquery Insert Rows", async () => {
   await bigquery.dataset(datasetId).createTable(tableId, tableOptions);
 
   const response = await main(
-    keyFilename,
+    resource,
     {
       datasetId: datasetId,
       tableId: tableId,
@@ -42,4 +45,7 @@ test("Bigquery Insert Rows", async () => {
   );
 
   expect(response).toBeDefined();
+
+  // delete the dataset
+  await bigquery.dataset(datasetId).delete({force: true});
 });

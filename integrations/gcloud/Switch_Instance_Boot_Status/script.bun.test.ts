@@ -10,14 +10,17 @@
 // import { expect, test } from "bun:test";
 // import { main } from "./script.bun.ts";
 // import { InstanceGroupManagersClient } from "@google-cloud/compute";
+// import { resource } from "../resource";
 
 // test("Switch Instance Boot Status", async () => {
 
 //   // Create a VM Instance first
 //   const instanceName = Math.random().toString(36).slice(2);
-//   const keyFilename = './creds.json';
 
-//   const computeClient = new InstanceGroupManagersClient({ keyFilename });
+//   const computeClient = new InstanceGroupManagersClient({
+  //   credentials: resource,
+  //   projectId: resource.project_id
+  // });
 //   const projectId = await computeClient.getProjectId();
 //   const request = {
 //     instanceGroupManager: "windmill-labs-vm",
@@ -30,7 +33,7 @@
 //   console.log(await computeClient.createInstances(request));
 
   // const response = await main(
-  //   keyFilename,
+  //   resource,
   //   {
   //     projectId: "windmill-labs",
   //     instance: "windmill-labs-vm",

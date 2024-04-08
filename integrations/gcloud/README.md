@@ -16,9 +16,7 @@ Steps:
 
 5. IMPORTANT - Enable billing or buy the paid tier/start free trial. (All services are supported only in paid tier). 
 
-Click on 'Manage Keys' and then 'ADD KEY' -> 'Create New Key', enter details and a credentials file (json format) will be downloaded.
-
-Rename this file as 'creds.json' and add it under the gcloud directory (path : windmill-community-integrations/integrations/gcloud). This file will act similar to a .env file and contains all required keys. (Refer .creds.example file)
+Click on 'Manage Keys' and then 'ADD KEY' -> 'Create New Key', enter details and a credentials file (json format) will be downloaded. Fill the .env file using this downloaded file.
 
 Recommendations:
 For Bigquery, datasets and tables can be created either manually on the site or by APIs (Refer test files).
