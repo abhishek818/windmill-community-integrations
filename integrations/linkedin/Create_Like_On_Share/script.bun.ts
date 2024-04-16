@@ -20,18 +20,12 @@ export async function main(
   },
 ) {
   const url = `${resource.baseUrl}/v2/socialActions/${activityUrn}/likes`;
-  try {
-    const response = await axios.post(url, likeData, {
-      headers: {
-        Authorization: `Bearer ${resource.userAccessToken}`,
-        'X-Restli-Protocol-Version': '2.0.0',
-        'LinkedIn-Version': `${resource.apiVersion}`,
-        'Content-Type': 'application/json',
-      },
-    });
-
-    return response;
-  } catch (error) {
-    throw error;
-  }
+  return await axios.post(url, likeData, {
+    headers: {
+      Authorization: `Bearer ${resource.userAccessToken}`,
+      'X-Restli-Protocol-Version': '2.0.0',
+      'LinkedIn-Version': `${resource.apiVersion}`,
+      'Content-Type': 'application/json',
+    },
+  });
 }

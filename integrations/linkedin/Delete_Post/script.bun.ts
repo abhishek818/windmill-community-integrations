@@ -13,16 +13,10 @@ type Linkedin = {
 
 export async function main(resource: Linkedin, postId: string) {
   const url = `${resource.baseUrl}/rest/posts/${postId}`;
-  try {
-    const response = await axios.delete(url, {
-      headers: {
-        Authorization: `Bearer ${resource.userAccessToken}`,
-        'LinkedIn-Version': `${resource.apiVersion}`,
-      },
-    });
-
-    return response;
-  } catch (error) {
-    throw error;
-  }
+  return await axios.delete(url, {
+    headers: {
+      Authorization: `Bearer ${resource.userAccessToken}`,
+      'LinkedIn-Version': `${resource.apiVersion}`,
+    },
+  });
 }

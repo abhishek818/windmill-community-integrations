@@ -40,39 +40,11 @@ export async function main(
   },
 ) {
   const url = `${resource.baseUrl}/rest/images?action=initializeUpload`;
-  try {
-    const uploadResponse = await axios.post(url, imageData, {
-      headers: {
-        Authorization: `Bearer ${resource.organizationAccessToken}`,
-        'X-Restli-Protocol-Version': '2.0.0',
-        'LinkedIn-Version': `${resource.apiVersion}`,
-      },
-    });
-
-    const { uploadUrl, image } = uploadResponse.data.value;
-
-    await axios.post(
-      uploadUrl,
-      { url: pictureUrl },
-      {
-        // Modified the request body to pass pictureUrl as an object
-        headers: {
-          Authorization: `Bearer ${resource.organizationAccessToken}`,
-          'X-Restli-Protocol-Version': '2.0.0',
-          'LinkedIn-Version': `${resource.apiVersion}`,
-        },
-      },
-    );
-
-    // for postData, pass media.content.id as 'uploadUrl' here, refer test file
-    if (postData.content?.media) {
-      postData.content.media.id = `${image}`;
-    }
-
-    const imageUserPostResponse = await createUserPost(resource, postData);
-
-    return imageUserPostResponse;
-  } catch (error) {
-    throw error;
-  }
+  return await axios.post(url, imageData, {
+    headers: {
+      Authorization: `Bearer ${resource.organizationAccessToken}`,
+      'X-Restli-Protocol-Version': '2.0.0',
+      'LinkedIn-Version': `${resource.apiVersion}`,
+    },
+  });
 }

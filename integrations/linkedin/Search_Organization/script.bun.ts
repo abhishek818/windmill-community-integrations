@@ -24,17 +24,11 @@ export async function main(
   }
 
   const url = `${resource.baseUrl}/rest/${queryStringUrl}`;
-  try {
-    const response = await axios.get(url, {
-      headers: {
-        Authorization: `Bearer ${resource.organizationAccessToken}`,
-        'X-Restli-Protocol-Version': '2.0.0',
-        'LinkedIn-Version': `${resource.apiVersion}`,
-      },
-    });
-
-    return response;
-  } catch (error) {
-    throw error;
-  }
+  return await axios.get(url, {
+    headers: {
+      Authorization: `Bearer ${resource.organizationAccessToken}`,
+      'X-Restli-Protocol-Version': '2.0.0',
+      'LinkedIn-Version': `${resource.apiVersion}`,
+    },
+  });
 }
