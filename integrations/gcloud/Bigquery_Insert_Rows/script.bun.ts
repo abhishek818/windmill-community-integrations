@@ -30,10 +30,5 @@ export async function main(
     projectId: resource.project_id,
   });
 
-  try {
-    const response = await bigquery.dataset(data.datasetId).table(data.tableId).insert(data.rows);
-    return response;
-  } catch (error) {
-    throw error;
-  }
+  return await bigquery.dataset(data.datasetId).table(data.tableId).insert(data.rows);
 }

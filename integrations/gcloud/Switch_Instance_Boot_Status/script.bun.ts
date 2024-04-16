@@ -28,15 +28,12 @@ export async function main(
     projectId: resource.project_id,
   });
 
-  try {
-    let compute;
-    if (operation == 'START') {
-      compute = await computeClient.start(request);
-    } else {
-      compute = await computeClient.stop(request);
-    }
-    return compute;
-  } catch (error) {
-    throw error;
+  let compute;
+  if (operation == 'START') {
+    compute = await computeClient.start(request);
+  } else {
+    compute = await computeClient.stop(request);
   }
+
+  return compute;
 }

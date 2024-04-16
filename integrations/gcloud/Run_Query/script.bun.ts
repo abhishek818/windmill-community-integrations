@@ -29,11 +29,8 @@ export async function main(
     location: location,
   };
 
-  try {
-    const [job] = await bigquery.createQueryJob(options);
-    const [rows] = await job.getQueryResults();
-    return rows;
-  } catch (error) {
-    throw error;
-  }
+  const [job] = await bigquery.createQueryJob(options);
+  const [rows] = await job.getQueryResults();
+
+  return rows;
 }

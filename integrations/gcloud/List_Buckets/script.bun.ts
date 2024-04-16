@@ -20,10 +20,5 @@ export async function main(resource: Gcloud) {
     projectId: resource.project_id,
   });
 
-  try {
-    const response = await storage.getBuckets();
-    return response;
-  } catch (error) {
-    throw error;
-  }
+  return await storage.getBuckets();
 }

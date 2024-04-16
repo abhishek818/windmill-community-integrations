@@ -35,10 +35,5 @@ export async function main(
   const log = logging.log(logName);
   const text_entry = log.entry(metadata, textEntry);
 
-  try {
-    const response = await log.write(text_entry, options);
-    return response;
-  } catch (error) {
-    throw error;
-  }
+  return await log.write(text_entry, options);
 }

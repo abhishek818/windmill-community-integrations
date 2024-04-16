@@ -19,7 +19,7 @@ type Base64 = string;
 export async function main(
   resource: Gcloud,
   bucketName: string,
-  filePath: Base64,
+  file: Base64,
   options: {
     destination: string;
   },
@@ -29,10 +29,15 @@ export async function main(
     projectId: resource.project_id,
   });
 
-  try {
-    const response = await storage.bucket(bucketName).upload(filePath, options);
-    return response;
-  } catch (error) {
-    throw error;
-  }
+  var stream = require('stream');
+  var bufferStream = new stream.PassThrough();
+  bufferStream.end(Buffer.from(file, 'base64'));
+
+  var bucket = storage.bucket(bucketName);
+  var fileObject = bucket.file(options.destination);
+  //Pipe the 'bufferStream' into a 'file.createWriteStream' method.
+  return await bufferStream.pipe(fileObject.createWriteStream());
+
+  // upload api requires filepath as argument
+  // const response = await storage.bucket(bucketName).upload(filePath, options);
 }
