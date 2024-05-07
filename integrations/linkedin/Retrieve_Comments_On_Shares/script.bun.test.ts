@@ -18,7 +18,7 @@
 // test("Create Comment", async () => {
 //   const userInfo = await axios.get(`${resource.baseUrl}/v2/userinfo`, {
 //     headers: {
-//       "Authorization": `Bearer ${resource.userAccessToken}`,
+//       "Authorization": `Bearer ${resource.token}`,
 //       "X-Restli-Protocol-Version": "2.0.0",
 //       "LinkedIn-Version": `${resource.apiVersion}`
 //     },

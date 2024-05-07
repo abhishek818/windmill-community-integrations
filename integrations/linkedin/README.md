@@ -14,7 +14,7 @@
 RECOMMENDED: (IMPORTANT) (Applicable as of 8th April, 2024)
  If you want to use Apis related to both individual and a organization , its recommended to enable single User related products like 'Share on LinkedIn', 'Sign In with LinkedIn using OpenID Connect' and 'Advertising API' within one app and organization related product like 'Community Management API' within a other separate app. Linkedin doesnt allows otherwise.
 
- The above is the reason for going ahead with having separate env vars like 'LINKEDIN_USER_ACCESS_TOKEN' and 'LINKEDIN_ORGANIZATION_ACCESS_TOKEN'.
+ The above is the reason for going ahead with having separate env vars like 'LINKEDIN_USER_ACCESS_TOKEN' and 'LINKEDIN_ORGANIZATION_ACCESS_TOKEN' (just duplicate resource.ts file).
 
  For getting 'Community Management API' and 'Advertising API' access, you need to have a proper company name with registeration and a domain. Linkedin gives you a request form where you need to fill these details,
  which is why I haven't been able to gain access to above and add test cases for Organization and Advertising specific apis. 

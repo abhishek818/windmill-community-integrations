@@ -1,23 +1,17 @@
-import axios from 'axios';
+import axios from 'axios'
 
 type Linkedin = {
-  userClientId: string;
-  userClientSecret: string;
-  userAccessToken: string;
-  organizationClientId: string;
-  organizationClientSecret: string;
-  organizationAccessToken: string;
-  baseUrl: string;
-  apiVersion: string;
-};
+	token: string
+	apiVersion: string
+}
 
 export async function main(resource: Linkedin, adAccountID: string) {
-  const url = `${resource.baseUrl}/rest/adAccounts/${adAccountID}`;
-  return await axios.get(url, {
-    headers: {
-      Authorization: `Bearer ${resource.organizationAccessToken}`,
-      'LinkedIn-Version': `${resource.apiVersion}`,
-      'X-Restli-Protocol-Version': '2.0.0',
-    },
-  });
+	const url = `https://api.linkedin.com/rest/adAccounts/${adAccountID}`
+	return await axios.get(url, {
+		headers: {
+			Authorization: `Bearer ${resource.token}`,
+			'LinkedIn-Version': `${resource.apiVersion}`,
+			'X-Restli-Protocol-Version': '2.0.0'
+		}
+	})
 }

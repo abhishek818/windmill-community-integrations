@@ -18,13 +18,8 @@
 // import axios from 'axios';
 
 // type Linkedin = {
-//   userClientId: string;
 //   userClientSecret: string;
-//   userAccessToken: string;
-//   organizationClientId: string;
-//   organizationClientSecret: string;
-//   organizationAccessToken: string;
-//   baseUrl: string;
+//   token: string;
 //   apiVersion: string;
 // };
 
@@ -34,7 +29,7 @@
 //   try {
 //     const response = await axios.get(url, {
 //       headers: {
-//         "Authorization": `Bearer ${resource.organizationAccessToken}`,
+//         "Authorization": `Bearer ${resource.token}`,
 //         "X-Restli-Protocol-Version": "2.0.0",
 //         "LinkedIn-Version": `${resource.apiVersion}`
 //       },
