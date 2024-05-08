@@ -11,7 +11,8 @@
       "client_email",
       "private_key_id",
       "client_x509_cert_url",
-      "auth_provider_x509_cert_url"
+      "auth_provider_x509_cert_url",
+      "universe_domain"
   ],
   "properties": {
       "type": {
@@ -46,6 +47,10 @@
           "format": "url"
       },
       "auth_provider_x509_cert_url": {
+          "type": "string",
+          "format": "url"
+      },
+      "universe_domain": {
           "type": "string",
           "format": "url"
       }
