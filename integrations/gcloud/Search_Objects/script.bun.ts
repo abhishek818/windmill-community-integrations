@@ -14,11 +14,30 @@ type Gcloud = {
 	universe_domain: string
 }
 
-export async function main(resource: Gcloud, bucketName: string) {
+export async function main(
+	resource: Gcloud,
+	bucketName: string,
+	fileOptions?: {
+		prefix?: string
+		autoPaginate?: boolean
+		delimiter?: string
+		endOffset?: string
+		includeFoldersAsPrefixes?: boolean
+		includeTrailingDelimiter?: boolean
+		matchGlob?: string
+		maxApiCalls?: number
+		maxResults?: number
+		pageToken?: string
+		softDeleted?: boolean
+		startOffset?: string
+		userProject?: string
+		versions?: boolean
+	}
+) {
 	const storage = new Storage({
 		credentials: resource,
 		projectId: resource.project_id
 	})
 
-	return await storage.bucket(bucketName).getFiles()
+	return await storage.bucket(bucketName).getFiles(fileOptions)
 }

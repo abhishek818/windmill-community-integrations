@@ -29,15 +29,12 @@ export async function main(
 		projectId: resource.project_id
 	})
 
-	var stream = require('stream')
-	var bufferStream = new stream.PassThrough()
+	const stream = require('stream')
+	const bufferStream = new stream.PassThrough()
 	bufferStream.end(Buffer.from(file, 'base64'))
 
-	var bucket = storage.bucket(bucketName)
-	var fileObject = bucket.file(options.destination)
+	const bucket = storage.bucket(bucketName)
+	const fileObject = bucket.file(options.destination)
 	//Pipe the 'bufferStream' into a 'file.createWriteStream' method.
 	return await bufferStream.pipe(fileObject.createWriteStream())
-
-	// upload api requires filepath as argument
-	// const response = await storage.bucket(bucketName).upload(filePath, options);
 }

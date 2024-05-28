@@ -26,8 +26,8 @@ test('Upload An Object', async () => {
 	// Somehow file is not found through below apis,
 	// but its available check it on the gcp console/UI.
 	// await storage.bucket(bucketName).file(destination).delete();
-	// var bucket = storage.bucket(bucketName);
-	// var fileObject = bucket.file(destination);
+	// const bucket = storage.bucket(bucketName);
+	// const fileObject = bucket.file(destination);
 	// await fileObject.delete();
 	await storage.bucket(bucketName).delete()
 })
